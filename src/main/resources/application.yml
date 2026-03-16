@@ -1,0 +1,101 @@
+server:
+  port: 9898
+  servlet:
+    context-path: /
+
+spring:
+  application:
+    name: wechat-miniprogram-mall-backend
+  profiles:
+    active: dev
+
+  # No database configuration - using mock data storage
+  
+  servlet:
+    multipart:
+      max-file-size: 10MB
+      max-request-size: 10MB
+      enabled: true
+
+file:
+  upload-dir: uploads
+
+# Logging configuration
+logging:
+  level:
+    root: INFO
+    com.mall: DEBUG
+    org.springframework.security: DEBUG
+  pattern:
+    console: "%d{yyyy-MM-dd HH:mm:ss} - %msg%n"
+    file: "%d{yyyy-MM-dd HH:mm:ss} [%thread] %-5level %logger{36} - %msg%n"
+
+# JWT Configuration
+jwt:
+  secret: ${JWT_SECRET:your-256-bit-secret-key-change-in-production-at-least-32-characters-long}
+  expiration: 86400000  # 24 hours in milliseconds
+
+# WeChat Configuration
+wechat:
+  app-id: ${WECHAT_APP_ID:your-wechat-app-id}
+  app-secret: ${WECHAT_APP_SECRET:your-wechat-app-secret}
+
+# API Documentation (Swagger)
+springdoc:
+  api-docs:
+    path: /api-docs
+  swagger-ui:
+    path: /swagger-ui.html
+    enabled: true
+  show-actuator: true
+
+---
+# Development environment
+spring:
+  config:
+    activate:
+      on-profile: dev
+
+logging:
+  level:
+    root: DEBUG
+    com.mall: DEBUG
+    org.springframework: DEBUG
+
+jwt:
+  expiration: 86400000
+
+---
+# Test environment
+spring:
+  config:
+    activate:
+      on-profile: test
+
+logging:
+  level:
+    root: INFO
+    com.mall: INFO
+
+jwt:
+  expiration: 3600000
+
+---
+# Production environment
+spring:
+  config:
+    activate:
+      on-profile: prod
+
+logging:
+  level:
+    root: WARN
+    com.mall: INFO
+  file:
+    name: logs/mall-backend.log
+    max-size: 10MB
+    max-history: 30
+
+jwt:
+  secret: ${JWT_SECRET}
+  expiration: 604800000

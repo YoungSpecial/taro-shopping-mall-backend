@@ -1,0 +1,160 @@
+package com.mall.config;
+
+import com.mall.model.*;
+import com.mall.repository.*;
+import org.springframework.boot.CommandLineRunner;
+import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.Configuration;
+
+import java.math.BigDecimal;
+import java.time.LocalDateTime;
+
+@Configuration
+public class MockDataInitializer {
+
+    // 暂时注释掉数据初始化，先让项目编译通过
+    // @Bean
+    // public CommandLineRunner initMockData(
+    //         UserRepository userRepository,
+    //         CategoryRepository categoryRepository,
+    //         ProductRepository productRepository,
+    //         AdminUserRepository adminUserRepository
+    // ) {
+    //     return args -> {
+    //         initializeAdminUsers(adminUserRepository);
+    //         initializeCategories(categoryRepository);
+    //         initializeProducts(categoryRepository, productRepository);
+    //         initializeUsers(userRepository);
+    // 
+    //         System.out.println("Mock data initialized successfully!");
+    //     };
+    // }
+
+    private void initializeAdminUsers(AdminUserRepository repository) {
+        AdminUser admin = new AdminUser();
+        admin.setUsername("admin");
+        admin.setPassword("$2a$10$N9qo8uLOickgx2ZMRZoMyeIjZAgcfl7pTYldf1a1vIw/MD5qB5qJ5e/5gBv6qXjO/3Bz6qXjO");
+        admin.setName("Super Admin");
+        admin.setEmail("admin@mall.com");
+        admin.setPhone("13800138000");
+        admin.setRole(AdminUser.AdminRole.SUPER_ADMIN);
+        admin.setStatus(AdminUser.AdminStatus.ACTIVE);
+        admin.setLastLoginAt(LocalDateTime.now());
+        repository.save(admin);
+    }
+
+    private void initializeCategories(CategoryRepository repository) {
+        Category electronics = new Category();
+        electronics.setName("电子产品");
+        electronics.setDescription("各类电子数码产品");
+        electronics.setIconUrl("/icons/electronics.png");
+        electronics.setSortOrder(1);
+        electronics.setParentId(null);
+        electronics.setLevel(1);
+        repository.save(electronics);
+
+        Category clothing = new Category();
+        clothing.setName("服装鞋帽");
+        clothing.setDescription("时尚服装和鞋帽");
+        clothing.setIconUrl("/icons/clothing.png");
+        clothing.setSortOrder(2);
+        clothing.setParentId(null);
+        clothing.setLevel(1);
+        repository.save(clothing);
+
+        Category food = new Category();
+        food.setName("食品生鲜");
+        food.setDescription("新鲜食品和生鲜产品");
+        food.setIconUrl("/icons/food.png");
+        food.setSortOrder(3);
+        food.setParentId(null);
+        food.setLevel(1);
+        repository.save(food);
+
+        Category phones = new Category();
+        phones.setName("手机通讯");
+        phones.setDescription("智能手机及配件");
+        phones.setIconUrl("/icons/phones.png");
+        phones.setSortOrder(1);
+        phones.setParentId(electronics.getId());
+        phones.setLevel(2);
+        repository.save(phones);
+    }
+
+    private void initializeProducts(CategoryRepository categoryRepository, ProductRepository productRepository) {
+        Product iphone = new Product();
+        iphone.setName("iPhone 15 Pro Max");
+        iphone.setDescription("苹果最新旗舰手机，A17 Pro芯片，钛金属边框");
+        iphone.setImageUrl("/products/iphone15pro.png");
+        iphone.setPrice(new BigDecimal("9999.00"));
+        iphone.setOriginalPrice(new BigDecimal("10999.00"));
+        iphone.setStock(100);
+        iphone.setSold(50);
+        iphone.setStatus(ProductStatus.ACTIVE);
+        iphone.setCategoryId(categoryRepository.findByName("手机通讯").get().getId());
+        productRepository.save(iphone);
+
+        Product macbook = new Product();
+        macbook.setName("MacBook Pro 14寸");
+        macbook.setDescription("M3 Pro芯片，14英寸Liquid Retina XDR显示屏");
+        macbook.setImageUrl("/products/macbookpro.png");
+        macbook.setPrice(new BigDecimal("14999.00"));
+        macbook.setOriginalPrice(new BigDecimal("16999.00"));
+        macbook.setStock(50);
+        macbook.setSold(30);
+        macbook.setStatus(ProductStatus.ACTIVE);
+        macbook.setCategoryId(categoryRepository.findByName("电子产品").get().getId());
+        productRepository.save(macbook);
+
+        Product tshirt = new Product();
+        tshirt.setName("纯棉圆领T恤");
+        tshirt.setDescription("100%纯棉，舒适透气，多色可选");
+        tshirt.setImageUrl("/products/tshirt.png");
+        tshirt.setPrice(new BigDecimal("99.00"));
+        tshirt.setOriginalPrice(new BigDecimal("129.00"));
+        tshirt.setStock(200);
+        tshirt.setSold(150);
+        tshirt.setStatus(ProductStatus.ACTIVE);
+        tshirt.setCategoryId(categoryRepository.findByName("服装鞋帽").get().getId());
+        productRepository.save(tshirt);
+
+        Product sneakers = new Product();
+        sneakers.setName("运动休闲鞋");
+        sneakers.setDescription("轻便舒适，适合日常穿着");
+        sneakers.setImageUrl("/products/sneakers.png");
+        sneakers.setPrice(new BigDecimal("299.00"));
+        sneakers.setOriginalPrice(new BigDecimal("399.00"));
+        sneakers.setStock(80);
+        sneakers.setSold(60);
+        sneakers.setStatus(ProductStatus.ACTIVE);
+        sneakers.setCategoryId(categoryRepository.findByName("服装鞋帽").get().getId());
+        productRepository.save(sneakers);
+
+        Product apple = new Product();
+        apple.setName("新鲜红富士苹果");
+        apple.setDescription("产地直采，新鲜脆甜");
+        apple.setImageUrl("/products/apple.png");
+        apple.setPrice(new BigDecimal("29.90"));
+        apple.setOriginalPrice(new BigDecimal("39.90"));
+        apple.setStock(500);
+        apple.setSold(300);
+        apple.setStatus(ProductStatus.ACTIVE);
+        apple.setCategoryId(categoryRepository.findByName("食品生鲜").get().getId());
+        productRepository.save(apple);
+    }
+
+    private void initializeUsers(UserRepository repository) {
+        User user = new User();
+        user.setWechatOpenId("mock_openid_001");
+        user.setWechatUnionId("mock_unionid_001");
+        user.setNickname("测试用户");
+        user.setAvatarUrl("/avatars/user1.png");
+        user.setPhone("13800138001");
+        user.setEmail("test@example.com");
+        user.setStatus(User.UserStatus.ACTIVE);
+        user.setCreatedAt(LocalDateTime.now());
+        user.setUpdatedAt(LocalDateTime.now());
+        user.setLastLoginAt(LocalDateTime.now());
+        repository.save(user);
+    }
+}

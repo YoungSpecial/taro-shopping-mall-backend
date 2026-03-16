@@ -1,0 +1,164 @@
+[
+  {
+    "id": 1,
+    "name": "iPhone 15 Pro Max",
+    "description": "苹果最新旗舰手机，搭载A17 Pro芯片，钛金属机身，4800万像素主摄像头",
+    "imageUrl": "http://localhost:9898/api/v1/images/iphone15-pro-max.jpg",
+    "images": [
+      "http://localhost:9898/api/v1/images/iphone15-pro-max.jpg"
+    ],
+    "price": 9999.00,
+    "originalPrice": 10999.00,
+    "stock": 50,
+    "sold": 120,
+    "status": "ACTIVE",
+    "categoryId": 1,
+    "createdAt": "2024-01-15T10:30:00",
+    "updatedAt": "2024-03-14T14:20:00",
+    "rating": 4.5
+  },
+  {
+    "id": 2,
+    "name": "华为Mate 60 Pro",
+    "description": "华为旗舰手机，搭载麒麟9000S芯片，卫星通话功能，昆仑玻璃",
+    "imageUrl": "http://localhost:9898/api/v1/images/huawei-mate60-pro.jpg",
+    "images": [
+      "http://localhost:9898/api/v1/images/huawei-mate60-pro.jpg"
+    ],
+    "price": 6999.00,
+    "originalPrice": 7999.00,
+    "stock": 30,
+    "sold": 85,
+    "status": "ACTIVE",
+    "categoryId": 1,
+    "createdAt": "2023-12-10T09:15:00",
+    "updatedAt": "2024-03-13T16:45:00",
+    "rating": 3.0
+  },
+  {
+    "id": 3,
+    "name": "小米14 Ultra",
+    "description": "小米影像旗舰，徕卡四摄，骁龙8 Gen 3处理器，2K AMOLED屏幕",
+    "imageUrl": "http://localhost:9898/api/v1/images/xiaomi-14-ultra.jpg",
+    "images": [
+      "http://localhost:9898/api/v1/images/xiaomi-14-ultra.jpg"
+    ],
+    "price": 6499.00,
+    "originalPrice": 6999.00,
+    "stock": 45,
+    "sold": 65,
+    "status": "ACTIVE",
+    "categoryId": 1,
+    "createdAt": "2024-02-20T11:00:00",
+    "updatedAt": "2024-03-14T10:30:00",
+    "rating": 4.0
+  },
+  {
+    "id": 4,
+    "name": "始祖鸟冲锋衣",
+    "description": "始祖鸟冲锋衣，保暖防风，适合登山、徒步、滑雪等户外活动",
+    "imageUrl": "http://localhost:9898/api/v1/images/shizuniao.jpg",
+    "images": [
+      "http://localhost:9898/api/v1/images/shizuniao.jpg"
+    ],
+    "price": 5400.00,
+    "originalPrice": 5500.00,
+    "stock": 25,
+    "sold": 40,
+    "status": "ACTIVE",
+    "categoryId": 2,
+    "createdAt": "2023-11-05T14:20:00",
+    "updatedAt": "2024-03-12T09:45:00",
+    "rating": 3.6
+  },
+  {
+    "id": 5,
+    "name": "安踏卫衣",
+    "description": "安踏卫衣，保暖防风，适合登山、徒步、滑雪等户外活动",
+    "imageUrl": "http://localhost:9898/api/v1/images/anta.jpg",
+    "images": [
+      "http://localhost:9898/api/v1/images/anta.jpg"
+    ],
+    "price": 321.00,
+    "originalPrice": 430.00,
+    "stock": 35,
+    "sold": 55,
+    "status": "ACTIVE",
+    "categoryId": 2,
+    "createdAt": "2024-01-25T13:30:00",
+    "updatedAt": "2024-03-14T15:10:00",
+    "rating": 4.2
+  },
+  {
+    "id": 6,
+    "name": "拓展三人帐篷",
+    "description": "拓展三人帐篷，适合露营、野餐、登山等户外活动",
+    "imageUrl": "http://localhost:9898/api/v1/images/zhangpeng.jpg",
+    "images": [
+      "http://localhost:9898/api/v1/images/zhangpeng.jpg"
+    ],
+    "price": 3899.00,
+    "originalPrice": 4299.00,
+    "stock": 0,
+    "sold": 200,
+    "status": "OUT_OF_STOCK",
+    "categoryId": 3,
+    "createdAt": "2023-10-15T08:45:00",
+    "updatedAt": "2024-03-14T11:20:00",
+    "rating": 4.1
+  },
+  {
+    "id": 7,
+    "name": "露营推车",
+    "description": "露营推车，适合露营、野餐、登山等户外活动",
+    "imageUrl": "http://localhost:9898/api/v1/images/luyingtuiche.jpg",
+    "images": [
+      "http://localhost:9898/api/v1/images/luyingtuiche.jpg"
+    ],
+    "price": 2399.00,
+    "originalPrice": 2599.00,
+    "stock": 60,
+    "sold": 90,
+    "status": "ACTIVE",
+    "categoryId": 3,
+    "createdAt": "2023-09-20T10:10:00",
+    "updatedAt": "2024-03-13T14:35:00",
+    "rating": 4.3
+  },
+  {
+    "id": 8,
+    "name": "安踏运动鞋",
+    "description": "安踏运动鞋，透气鞋面，缓震 sole，适合跑步、登山、徒步等户外活动",
+    "imageUrl": "http://localhost:9898/api/v1/images/antaxie.jpg",
+    "images": [
+      "http://localhost:9898/api/v1/images/antaxie.jpg"
+    ],
+    "price": 1899.00,
+    "originalPrice": 1999.00,
+    "stock": 100,
+    "sold": 150,
+    "status": "ACTIVE",
+    "categoryId": 4,
+    "createdAt": "2023-12-05T11:25:00",
+    "updatedAt": "2024-03-14T13:40:00",
+    "rating": 4.8
+  },
+  {
+    "id": 9,
+    "name": "耐克小白鞋",
+    "description": "耐克小白鞋，透气鞋面，缓震 sole，适合跑步、登山、徒步等户外活动",
+    "imageUrl": "http://localhost:9898/api/v1/images/nikexie.jpg",
+    "images": [
+      "http://localhost:9898/api/v1/images/nikexie.jpg"
+    ],
+    "price": 2499.00,
+    "originalPrice": 2999.00,
+    "stock": 40,
+    "sold": 75,
+    "status": "ACTIVE",
+    "categoryId": 4,
+    "createdAt": "2024-01-10T15:50:00",
+    "updatedAt": "2024-03-12T16:20:00",
+    "rating": 4.4
+  }
+]

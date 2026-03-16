@@ -1,0 +1,27 @@
+[
+  {
+    "id": -1,
+    "name": "全部",
+    "imageUrl": "https://img.alicdn.com/imgextra/i4/O1CN01Jf8a9y1D01X01X01X01.png"
+  },
+  {
+    "id": 1,
+    "name": "电子产品",
+    "imageUrl": "https://img.alicdn.com/imgextra/i4/O1CN01Jf8a9y1D01X01X01X01.png"
+  },
+  {
+    "id": 2,
+    "name": "服饰",
+    "imageUrl": "https://img.alicdn.com/imgextra/i4/O1CN01Jf8a9y1D01X01X01X01.png"
+  },
+  {
+    "id": 3,
+    "name": "运动户外",
+    "imageUrl": "https://img.alicdn.com/imgextra/i4/O1CN01Jf8a9y1D01X01X01X01.png"
+  },
+  {
+    "id": 4,
+    "name": "鞋类",
+    "imageUrl": "https://img.alicdn.com/imgextra/i4/O1CN01Jf8a9y1D01X01X01X01.png"
+  }
+]
