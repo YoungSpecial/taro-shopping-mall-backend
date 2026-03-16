@@ -114,7 +114,8 @@ public class OrderService {
         for (OrderItem item : orderItems) {
             Product product = productRepository.findById(item.getProductId())
                     .orElseThrow(() -> new ResourceNotFoundException("Product not found: " + item.getProductId()));
-            
+
+            //库存扣减，需要加分布式锁
             int newStock = product.getStock() - item.getQuantity();
             if (newStock < 0) {
                 throw new BusinessException("Insufficient stock for product: " + product.getName());
