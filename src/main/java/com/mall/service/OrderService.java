@@ -91,21 +91,21 @@ public class OrderService {
     private void validateCartItems(List<CreateOrderItemsRequest> carts) {
         for (CreateOrderItemsRequest cartItem : carts) {
             Product product = productRepository.findById(cartItem.getProductId())
-                    .orElseThrow(() -> new ResourceNotFoundException("Product not found: " + cartItem.getProductId()));
+                    .orElseThrow(() -> new ResourceNotFoundException("商品未发现: " + cartItem.getProductId()));
 
             // 检查库存
             if (product.getStock() < cartItem.getQuantity()) {
-                throw new BusinessException("Insufficient stock for product: " + product.getName());
+                throw new BusinessException("没有足够的库存: " + product.getName());
             }
 
             // 检查价格是否一致
             if (product.getPrice().compareTo(cartItem.getPrice()) != 0) {
-                throw new BusinessException("Price mismatch for product: " + product.getName());
+                throw new BusinessException("价格不一致: " + product.getName());
             }
 
             // 检查产品是否可用
             if (!ProductStatus.ACTIVE.equals(product.getStatus())) {
-                throw new BusinessException("Product is not available: " + product.getName());
+                throw new BusinessException("商品不可见: " + product.getName());
             }
         }
     }
